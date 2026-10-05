@@ -1,0 +1,659 @@
+:root {
+            --rosa: lch(37.29% 69.54 341.33);
+            --rosa-claro: #ffb6d9;
+            --negro: #050505;
+            --blanco: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    #4A0010 0%,
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    #800020 0%,
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #270016,
+                    #6b002d,
+                    #3b001f
+                );
+        }
+
+        .corazones {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .corazon {
+            position: absolute;
+            color: rgba(255,255,255,0.30);
+            font-size: 50px;
+            animation:
+                subir 10s linear infinite,
+                aparecer 2s ease-in-out infinite alternate;
+        }
+        @keyframes subir {
+            0% {
+                transform:
+                    translateY(110vh)
+                    rotate(0deg);
+            }
+            100% {
+                transform:
+                    translateY(-20vh)
+                    rotate(360deg);
+            }
+        }
+        @keyframes aparecer {
+            from {
+                opacity: .2;
+            }
+            to {
+                opacity: .7;
+            }
+        }
+
+        .contenedor {
+            position: relative;
+            z-index: 2;
+            width: min(92%, 650px);
+            padding: 15px;
+        }
+
+        .tarjeta {
+            position: relative;
+            min-height: 650px;
+            padding: 40px 25px;
+            border-radius: 30px;
+            overflow: hidden;
+            text-align: center;
+            color: var(--blanco);
+            background:
+                radial-gradient(
+                    circle at 50% 10%,
+                    rgba(255,255,255,.12),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    180deg,
+                    #aa0041,
+                    hsl(278, 100%, 24%)
+                );
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.7),
+                0 0 40px rgba(255,20,147,.35);
+        }
+
+        .estrellas {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgb(255, 230, 0) 1px,
+                    transparent 3px
+                );
+            background-size: 45px 45px;
+            opacity: .18;
+            pointer-events: none;
+        }
+
+        .imagen-principal {
+            position: relative;
+            z-index: 2;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 25px;
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,.7);
+            box-shadow:
+                0 0 30px rgba(255,255,255,.4);
+            animation: flotar 4s ease-in-out infinite;
+        }
+        .foto-lateral {
+            position: absolute;
+            z-index: 3;
+            width: 265px;
+            height: 275px;
+            object-fit: cover;
+            background: rgba(255, 0, 157, 0.726);
+            padding: 5px;
+            border-radius: 3px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .foto-lateral:hover {
+            transform: scale(1.05) rotate(0deg);
+        }
+
+        .foto-izquierda {
+            left: -150px;
+            top: 125px;
+            transform: rotate(-8deg);
+            animation: flotarIzquierda 4s ease-in-out infinite;
+        }
+
+        .foto-derecha {
+            right: -210px;
+            top: 310px;
+            transform: rotate(8deg);
+            animation: flotarDerecha 4s ease-in-out infinite;
+        }
+        .foto-extra {
+            position: fixed !important;
+            z-index: 1;
+            width: 240px !important;
+            height: 280px !important;
+            object-fit: cover !important;
+            background: rgba(255, 0, 157, 0.726);
+            padding: 5px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .foto-extra-1 {
+            top: 20px;
+            left: 60%;
+            transform: rotate(16deg);
+            animation: flotarIzquierda 4s ease-in-out infinite;
+        }
+
+
+        .foto-extra-2 {
+            top: 80px;
+            right: 5%;
+            transform: rotate(8deg);
+            animation: flotarIzquierda 4s ease-in-out infinite;
+        }
+
+
+        .foto-extra-3 {
+            top: 600px;
+            left: 8%;
+            transform: rotate(8deg);
+            animation: flotarDerecha 4s ease-in-out infinite;
+        }
+
+
+        .foto-extra-4 {
+            bottom: 40px;
+            left: 30%;
+            transform: rotate(8deg);
+            animation: flotarDerecha 4s ease-in-out infinite;
+        }
+
+        .foto-extra-5 {
+            bottom: 40px;
+            left: 80%;
+            transform: rotate(8deg);
+            animation: flotarDerecha 4s ease-in-out infinite;
+        }
+        .foto-extra-6 {
+            top: 100px;
+            left: 5%;
+            transform: rotate(8deg);
+            animation: flotarDerecha 4s ease-in-out infinite;
+        }
+
+        @keyframes flotarIzquierda {
+           0%, 100% {
+               transform: rotate(-8deg) translateY(0);
+         }
+          50% {
+                transform: rotate(-8deg) translateY(-8px);
+         }
+        }
+
+        @keyframes flotarDerecha {
+           0%, 100% {
+        transform: rotate(8deg) translateY(0);
+          }
+           50% {
+        transform: rotate(8deg) translateY(-8px);
+             }
+        }
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 25px;
+            font-family: Georgia, serif;
+            font-size: clamp(
+                25px,
+                6vw,
+                40px
+            );
+            text-shadow:
+                0 0 10px rgba(255,255,255,.7);
+        }
+
+        .contador {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        .numero {
+            min-width: 60px;
+            padding: 10px 7px;
+            border-radius: 5px;
+            background: #eeeeee;
+            color: #111111;
+            font-family: monospace;
+            font-size: 23px;
+            font-weight: bold;
+            box-shadow:
+                inset 0 -4px 0 rgba(0,0,0,.25),
+                0 4px 10px rgba(0,0,0,.4);
+        }
+
+        .unidad {
+            display: block;
+            margin-top: 4px;
+            font-size: 9px;
+            color: #ffffff;
+            opacity: .8;
+        }
+
+        .mensaje {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            margin: 25px auto;
+            color: #eeeeee;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .destacado {
+            color: var(--rosa-claro);
+            font-weight: bold;
+        }
+
+        .boton {
+            position: relative;
+            z-index: 2;
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: 1px solid rgba(255,255,255,.5);
+            border-radius: 30px;
+            color: white;
+            background: rgba(255,255,255,.08);
+            cursor: pointer;
+            transition: .3s;
+        }
+        .boton:hover {
+            transform: scale(1.05);
+            background: var(--rosa);
+            box-shadow:
+                0 0 25px
+                rgba(255,20,147,.7);
+        }
+
+        .corazon-final {
+            position: relative;
+            z-index: 2;
+            margin-top: 25px;
+            font-size: 35px;
+            animation: latido 1s infinite;
+        }
+        @keyframes latido {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.25);
+            }
+        }
+        
+/* asd dividido para poder cambiar colores o cambios a la pantalla de contrrseña, solo modificar si no le gusta a katya o agrego más foto
+s xD */
+
+#pantalla-password {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, #800020 0%, transparent 28%),
+        radial-gradient(circle at 80% 80%, #aa0041 0%, transparent 30%),
+        linear-gradient(135deg, #16000d, #4a001f, #210012);
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+#pantalla-password.saliendo {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#pantalla-password::before,
+#pantalla-password::after {
+    content: "♥";
+    position: absolute;
+    color: rgba(255,255,255,.12);
+    font-size: 90px;
+    animation: corazonLogin 6s ease-in-out infinite;
+}
+
+#pantalla-password::before {
+    left: 8%;
+    bottom: 10%;
+}
+
+#pantalla-password::after {
+    right: 8%;
+    top: 12%;
+    animation-delay: 2s;
+}
+
+.login-brillo {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: rgba(255, 20, 147, .12);
+    filter: blur(45px);
+    animation: brilloLogin 4s ease-in-out infinite alternate;
+}
+
+.login-card {
+    position: relative;
+    z-index: 2;
+    width: min(92vw, 420px);
+    padding: 42px 30px 32px;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.12), transparent 35%),
+        rgba(70, 0, 35, .72);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 45px rgba(255,20,147,.25);
+    backdrop-filter: blur(14px);
+    animation: aparecerLogin .9s ease-out;
+}
+
+.login-corazones {
+    margin-bottom: 8px;
+    color: #ffb6d9;
+    font-size: 18px;
+    letter-spacing: 14px;
+    animation: latidoSuave 2s ease-in-out infinite;
+}
+
+.login-icono {
+    margin-bottom: 10px;
+    font-size: 48px;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,.4));
+    animation: flotarLogin 3s ease-in-out infinite;
+}
+
+.login-card h2 {
+    margin-bottom: 10px;
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 8vw, 42px);
+    text-shadow: 0 0 15px rgba(255,255,255,.55);
+}
+
+.login-subtitulo {
+    margin-bottom: 25px;
+    color: #ffe5f1;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.password-contenedor {
+    position: relative;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.password-contenedor input {
+    width: 100%;
+    padding: 14px 48px 14px 18px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 30px;
+    outline: none;
+    color: white;
+    background: rgba(255,255,255,.09);
+    font-size: 15px;
+    text-align: center;
+    transition: .3s ease;
+}
+
+.password-contenedor input::placeholder {
+    color: rgba(255,255,255,.65);
+}
+
+.password-contenedor input:focus {
+    border-color: #ffb6d9;
+    box-shadow: 0 0 20px rgba(255,182,217,.25);
+    background: rgba(255,255,255,.13);
+}
+
+#toggle-password {
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    opacity: .8;
+    transition: .2s;
+}
+
+#toggle-password:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.12);
+}
+
+.boton-entrar {
+    width: 100%;
+    padding: 13px 20px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 30px;
+    color: white;
+    background: linear-gradient(135deg, #aa0041, #72002f);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(0,0,0,.25);
+    transition: .3s ease;
+}
+
+.boton-entrar:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        0 0 25px rgba(255,20,147,.45);
+}
+
+.boton-entrar:active {
+    transform: scale(.97);
+}
+
+.error-password {
+    min-height: 22px;
+    margin-top: 12px;
+    color: #ffb6d9;
+    font-size: 13px;
+}
+
+.login-corazon-final {
+    margin-top: 12px;
+    font-size: 25px;
+    animation: latido 1.2s infinite;
+}
+
+.login-card.error {
+    animation: sacudir .45s ease;
+}
+
+@keyframes aparecerLogin {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.92);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes brilloLogin {
+    from {
+        transform: scale(.85);
+        opacity: .55;
+    }
+    to {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+@keyframes flotarLogin {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes corazonLogin {
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+        opacity: .35;
+    }
+    50% {
+        transform: translateY(-25px) rotate(8deg);
+        opacity: .7;
+    }
+}
+
+@keyframes latidoSuave {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes sacudir {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-7px); }
+    80% { transform: translateX(7px); }
+}
+
+@media (max-width: 500px) {
+
+    #pantalla-password {
+        padding: 15px;
+    }
+
+    .login-card {
+        padding: 34px 22px 26px;
+        border-radius: 25px;
+    }
+
+    .login-icono {
+        font-size: 42px;
+    }
+
+    .login-card h2 {
+        font-size: 32px;
+    }
+
+            .tarjeta {
+                min-height: 600px;
+                padding:
+                    35px 18px;
+            }
+            .imagen-principal {
+                width: 125px;
+                height: 125px;
+
+            }
+            .foto-lateral {
+                width: 85px;
+                height: 150px;
+                padding: 5px;
+
+            }
+            .foto-izquierda {
+                left: -25px;
+                top: 150px;
+
+            }
+            .foto-derecha {
+                right: 25px;
+                top: 150px;
+            }
+            .foto-extra-1 {
+            top: 25px;
+            left: 150px;
+            }
+            .foto-extra-2 {
+                top: 25px;
+                left: 150px;
+            }
+            .foto-extra-3 {
+                top: 25px;
+                left: 150px;
+            }
+            .foto-extra-4 {
+                top: 25px;
+                left: 150px;
+            }
+            .numero {
+                min-width: 45px;
+                font-size: 18px;
+            }
+            .mensaje {
+                font-size: 12px;
+            }
+        }
