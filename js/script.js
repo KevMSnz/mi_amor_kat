@@ -1,4 +1,4 @@
-const CONTRASENA = "090820026";
+const CONTRASENA = "09082026";
 
 const pantallaPassword = document.getElementById("pantalla-password");
 const campoPassword = document.getElementById("password");
